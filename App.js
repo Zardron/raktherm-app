@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NativeBaseProvider } from "native-base";
+import { SafeAreaView, StyleSheet } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import TabNavigator from "./TabNavigator";
+import NotificationScreen from "./screens/NotificationScreen";
+import DrawerNavigator from "./DrawerNavigator";
+
+const Drawer = createDrawerNavigator();
+
+const navOptionHandler = () => ({
+  headerShown: false,
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          initialRouteName="Newsfeed"
+          drawerContent={() => <DrawerNavigator />}
+        >
+          <Drawer.Screen
+            name="Newsfeed"
+            component={TabNavigator}
+            options={navOptionHandler}
+          />
+          <Drawer.Screen
+            name="Notification"
+            component={NotificationScreen}
+            options={navOptionHandler}
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  shadow: {
+    shadowColor: "#008053",
   },
+  shadowOffset: {
+    width: 0,
+    height: 10,
+  },
+  shadowOpacity: 0.5,
+  shadowRadius: 3.5,
+  elevation: 5,
 });
