@@ -1,11 +1,11 @@
 import * as React from "react";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { NativeBaseProvider } from "native-base";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import TabNavigator from "./TabNavigator";
-import NotificationScreen from "./screens/NotificationScreen";
 import DrawerNavigator from "./DrawerNavigator";
+import VideoGalleryScreen from "./screens/VideoGalleryScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -18,17 +18,17 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Drawer.Navigator
-          initialRouteName="Newsfeed"
+          initialRouteName="HomeMain"
           drawerContent={() => <DrawerNavigator />}
         >
           <Drawer.Screen
-            name="Newsfeed"
+            name="HomeMain"
             component={TabNavigator}
             options={navOptionHandler}
           />
           <Drawer.Screen
-            name="Notification"
-            component={NotificationScreen}
+            name="VideoGalleryMain"
+            component={VideoGalleryScreen}
             options={navOptionHandler}
           />
         </Drawer.Navigator>

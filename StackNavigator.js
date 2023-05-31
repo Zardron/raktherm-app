@@ -2,10 +2,11 @@ import { View, Text } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
-import SettingsScreen from "./screens/SettingsScreen";
+import VideoGalleryScreen from "./screens/VideoGalleryScreen";
 import MegaProjects from "./components/MegaProjects";
-import UpdateProfile from "./components/UpdateProfile";
-import NotificationScreen from "./screens/NotificationScreen";
+import ProductRangesScreen from "./screens/ProductRangesScreen";
+import ServicesAndSupportScreen from "./screens/ServicesAndSupportScreen";
+import CertificationsScreen from "./screens/CertificationsScreen";
 
 const Stack = createStackNavigator();
 
@@ -30,17 +31,48 @@ export const HomeStack = () => {
   );
 };
 
-export const SettingStack = () => {
+export const VideoGalleryStack = () => {
   return (
-    <Stack.Navigator initialRouteName="SettingsScreen">
+    <Stack.Navigator initialRouteName="VideoGallery">
       <Stack.Screen
-        name="SettingsScreen"
-        component={SettingsScreen}
+        name="VideoGallery"
+        component={VideoGalleryScreen}
         options={navOptionHandler}
       />
+    </Stack.Navigator>
+  );
+};
+
+export const ProductRangesStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="ProductRanges">
       <Stack.Screen
-        name="UpdateProfile"
-        component={UpdateProfile}
+        name="ProductRanges"
+        component={ProductRangesScreen}
+        options={navOptionHandler}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export const ServicesAndSupportStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="ServicesAndSupport">
+      <Stack.Screen
+        name="ServicesAndSupport"
+        component={ServicesAndSupportScreen}
+        options={navOptionHandler}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export const CertificationsStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="Certifications">
+      <Stack.Screen
+        name="Certifications"
+        component={CertificationsScreen}
         options={navOptionHandler}
       />
     </Stack.Navigator>
