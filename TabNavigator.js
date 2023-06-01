@@ -33,6 +33,7 @@ const TabNavigator = () => {
           fontSize: 14,
         },
       })}
+      initialRouteName="Home"
     >
       <Tab.Screen
         name="VideoGallery"

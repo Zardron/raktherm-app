@@ -7,6 +7,7 @@ import MegaProjects from "./components/MegaProjects";
 import ProductRangesScreen from "./screens/ProductRangesScreen";
 import ServicesAndSupportScreen from "./screens/ServicesAndSupportScreen";
 import CertificationsScreen from "./screens/CertificationsScreen";
+import FeedDetails from "./stack/FeedDetails";
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,11 @@ export const HomeStack = () => {
       <Stack.Screen
         name="MegaProjects"
         component={MegaProjects}
+        options={navOptionHandler}
+      />
+      <Stack.Screen
+        name="FeedDetails"
+        component={FeedDetails}
         options={navOptionHandler}
       />
     </Stack.Navigator>

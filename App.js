@@ -6,6 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import TabNavigator from "./TabNavigator";
 import DrawerNavigator from "./DrawerNavigator";
 import VideoGalleryScreen from "./screens/VideoGalleryScreen";
+import { VideoGalleryStack } from "./StackNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +29,7 @@ export default function App() {
           />
           <Drawer.Screen
             name="VideoGalleryMain"
-            component={VideoGalleryScreen}
+            component={VideoGalleryStack}
             options={navOptionHandler}
           />
         </Drawer.Navigator>
